@@ -1,14 +1,18 @@
-<h1>GeekTwitter</h1>
-<h3>Tweet一覧</h3>
-<%= link_to "新規投稿へ", tweets_new_path %>
+<%= stylesheet_link_tag 'index', :media => "all" %>
+
 <div class="tweets-container">
+<h3>Tweet一覧</h3>
   <% @tweets.each do |t| %>
     <div class="tweet">
-      <%= t.body %>
-      <%= t.created_at %>
-      <%= link_to "詳細へ", tweet_path(t.id) %>
-      <%= link_to "編集する", edit_tweet_path(t.id) %>
-      <%= button_to "削除する", tweet_path(t.id), method: :delete %>
+      <div class="main-box">
+        <div class="left-container"><%= t.body %></div>
+        <div class="right-container">
+          <%= link_to "詳細", tweet_path(t.id) %>
+          <%= link_to "編集", edit_tweet_path(t.id) %>
+          <%= link_to "削除", tweet_path(t.id), method: :delete %>
+        </div>
+      </div>
+        <p class="time"><%= t.created_at %></p>
     </div>
   <% end %>
 </div>
