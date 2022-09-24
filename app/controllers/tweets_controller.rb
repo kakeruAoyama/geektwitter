@@ -20,6 +20,19 @@ class TweetsController < ApplicationController
     end
   end
 
+  def edit
+    @tweet = Tweet.find(params[:id])
+  end
+
+  def update
+    tweet = Tweet.find(params[:id])
+    if tweet.update(tweet_params)
+      redirect_to :action => "show", :id => tweet.id
+    else
+      redirect_to :action => "new"
+    end
+  end
+
   private
   def tweet_params
     params.require(:tweet).permit(:body)
