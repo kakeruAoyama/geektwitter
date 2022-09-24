@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <h1>GeekTwitter</h1>
+      <div class="header-list">
+      <ul>
+        <li><%= link_to "ホーム", tweets_path %></li>
+        <li><%= link_to "新規投稿",tweets_new_path %></li>
+      </ul>
+      </div>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
