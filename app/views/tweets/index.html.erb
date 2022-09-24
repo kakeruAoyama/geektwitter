@@ -6,6 +6,7 @@
     <div class="tweet">
       <%= t.body %>
       <%= t.created_at %>
+      <%= link_to "詳細へ", tweet_path(t.id) %>
     </div>
   <% end %>
 </div>
