@@ -19,8 +19,12 @@
   margin: 0;
 }
 body {
+  min-height: 100vh;
+  position: relative; 
   font-family: "Hiragino Kaku Gothic Pro", "ヒラギノ角ゴ Pro W3", "メイリオ",
     Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 header {
   background-color: #00acee;
@@ -48,4 +52,15 @@ header ul {
 header li {
   list-style: none;
   margin-right: 40px;
+}
+footer {
+  color: white;
+  height: 30px;
+  background-color: #000;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  justify-content: flex-end;
 }
