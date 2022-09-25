@@ -1,6 +1,6 @@
 class TweetsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @tweets = Tweet.all
   end
@@ -15,6 +15,7 @@ class TweetsController < ApplicationController
 
   def create
     tweet = Tweet.new(tweet_params)
+    tweet.user_id = current_user.id
     if tweet.save
       redirect_to :action => "index"
     else

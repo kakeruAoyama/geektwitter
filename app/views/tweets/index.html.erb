@@ -5,7 +5,10 @@
   <% @tweets.each do |t| %>
     <div class="tweet">
       <div class="main-box">
-        <div class="left-container"><%= t.body %></div>
+        <div class="left-container">
+          <%= t.user.email %>
+          <%= t.body %>
+        </div>
         <div class="right-container">
           <%= link_to "詳細", tweet_path(t.id) %>
           <%= link_to "編集", edit_tweet_path(t.id) %>
