@@ -2,6 +2,12 @@
 
 <div class="tweets-container">
 <h3>Tweet一覧</h3>
+  <h3>投稿を検索</h3>
+  <%= form_tag({controller:"tweets",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag '検索する'  %>
+  <% end %>
+
   <% @tweets.each do |t| %>
     <div class="tweet">
       <div class="main-box">

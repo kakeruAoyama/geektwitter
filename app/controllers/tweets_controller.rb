@@ -3,6 +3,8 @@ class TweetsController < ApplicationController
 
   def index
     @tweets = Tweet.all
+    search = params[:search]
+    @tweets = @tweets.joins(:user).where("body LIKE ?", "%#{search}%") if search.present?
   end
 
   def new
