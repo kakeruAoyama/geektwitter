@@ -25,6 +25,8 @@ body {
     Meiryo, "ＭＳ Ｐゴシック", sans-serif;
   display: flex;
   flex-direction: column;
+  background-image: url("background.jpg");
+  background-size: cover;
 }
 header {
   background-color: #00acee;
