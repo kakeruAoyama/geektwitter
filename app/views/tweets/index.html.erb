@@ -15,6 +15,7 @@
         <div class="left-container">
           <%= t.user.email %>
           <%= t.body %>
+          <%= image_tag t.image_url, size: "250x200" if t.image? %>
         </div>
         <div class="right-container">
           <%= link_to "詳細", tweet_path(t.id) %>
