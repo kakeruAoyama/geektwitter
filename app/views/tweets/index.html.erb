@@ -1,5 +1,9 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
 
+<% if user_signed_in? %>
+  <%= link_to "マイページへ", user_path(current_user.id) %>
+<% end %>
+
 <%= page_entries_info @tweets %>
 <div class="tweets-container">
   <h3>Tweet一覧</h3>
@@ -13,6 +17,7 @@
     <div class="tweet">
       <div class="main-box">
         <div class="left-container">
+          <%= link_to t.user.name, user_path(t.user.id) %>
           <%= t.user.email %>
           <%= t.body %>
           <%= image_tag t.image_url, size: "250x200" if t.image? %>
