@@ -15,15 +15,14 @@
       </div>
       <div class="signin">
         <h1>ログイン</h1>
-        <form class="more-padding" autocomplete="off">
-          <input type="text" placeholder="username">
-          <input type="password" placeholder="password">
-          <div class="checkbox">
-            <input type="checkbox" id="remember" /><label for="remember">remember me</label>
-          </div>
-
+        <%= form_for(resource, as: resource_name, url: session_path(resource_name), class:"more-padding") do |f| %>
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"email" %>
+          <%= f.password_field :password, autocomplete: "off", placeholder:"password" %>
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %>
+          <% end -%>
           <button class="button submit">login</button>
-        </form>
+        <% end %>
       </div>
     </div>
     <div class="leftbox">
