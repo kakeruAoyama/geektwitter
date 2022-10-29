@@ -5,7 +5,7 @@ jobs:
   assign_review_by_comment:
     runs-on: ubuntu-latest
     steps:
-    - name: assign_review_by_comment
+    - name: Auto assign a reviewer by comment command
       # We recommend to use an arbitary latest version
       # if you don't have any troubles.
       # You can also specify `master`, but it sometimes might be broken.
