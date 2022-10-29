@@ -6,6 +6,11 @@ class TweetsController < ApplicationController
     search = params[:search]
     @tweets = @tweets.joins(:user).where("body LIKE ?", "%#{search}%") if search.present?
     @tweets = @tweets.page(params[:page]).per(3)
+    @days = Tweet.all.pluck(:created_at).map{|d|d.strftime("%Y-%m-%d")}.uniq
+  end
+
+  def day
+    @tweets = Tweet.where(created_at: params[:day].to_datetime.beginning_of_day..params[:day].to_datetime.end_of_day)
   end
 
   def new

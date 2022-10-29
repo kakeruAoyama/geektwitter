@@ -4,6 +4,12 @@
   <%= link_to "マイページへ", user_path(current_user.id) %>
 <% end %>
 
+
+<% @days.each do |d| %>
+  <%=  link_to d, day_tweets_path(day: d) %>
+<% end %>
+
+
 <%= page_entries_info @tweets %>
 <div class="tweets-container">
   <h3>Tweet一覧</h3>

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :tweets do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create]
+    collection do
+      get :day
+    end
   end
   root 'hello#index'
 end
