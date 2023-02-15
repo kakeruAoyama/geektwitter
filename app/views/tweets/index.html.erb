@@ -20,7 +20,9 @@
           <%= link_to t.user.name, user_path(t.user.id) %>
           <%= t.user.email %>
           <%= t.body %>
-          <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          <%= link_to tweet_path(t.id) do %>
+            <%= image_tag t.image_url, size: "250x200" if t.image? %>
+          <% end %>
         </div>
 
         <% if user_signed_in? %>
