@@ -1,7 +1,9 @@
 <%= stylesheet_link_tag 'index', :media => "all" %>
 
 <% if user_signed_in? %>
-  <%= link_to "マイページへ", user_path(current_user.id) %>
+  <%= link_to user_path(current_user.id) do %>
+    <%= image_tag "flour.webp" %>
+  <% end %>
 <% end %>
 
 <%= page_entries_info @tweets %>
